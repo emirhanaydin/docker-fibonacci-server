@@ -50,8 +50,9 @@ app.get("/values/all", async (req, res) => {
 
 app.get("/values/current", async (req, res) => {
   const values = await getValues();
+  const result = values != null ? values : [];
 
-  res.send(values);
+  res.send(result);
 });
 
 app.post("/values", async (req, res) => {
